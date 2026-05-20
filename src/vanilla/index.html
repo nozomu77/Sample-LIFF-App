@@ -9,51 +9,19 @@
   </head>
   <body>
     <div class="home">
-      <h1 class="home__title">
-        Welcome to <br /><a
-          class="home__title__link"
-          href="https://developers.line.biz/en/docs/liff/overview/"
-          >LIFF Starter!</a
-        >
-      </h1>
-      <div class="home__badges">
-        <span class="home__badges__badge badge--primary"> LIFF Starter </span>
-        <span class="home__badges__badge badge--secondary"> vanilla </span>
-        <span class="home__badges__badge badge--tertiary"> 0.1.0 </span>
-        <a
-          href="https://github.com/line/line-liff-v2-starter"
-          target="_blank"
-          rel="noreferrer"
-          class="home__badges__badge badge--secondary"
-        >
-          GitHub
-        </a>
-      </div>
+      <h1 class="home__title">LINE LIFF テスト</h1>
+      <p id="status" class="home__status">LIFF を初期化中...</p>
+
+      <section id="profileCard" class="profile profile--hidden" aria-live="polite">
+        <img id="profileImage" class="profile__image" alt="プロフィール画像" />
+        <h2 id="displayName" class="profile__name"></h2>
+        <p id="userId" class="profile__id"></p>
+      </section>
+
       <div class="home__buttons">
-        <a
-          href="https://developers.line.biz/en/docs/liff/developing-liff-apps/"
-          target="_blank"
-          rel="noreferrer"
-          class="home__buttons__button button--primary"
-        >
-          LIFF Documentation
-        </a>
-        <a
-          href="https://liff-playground.netlify.app/"
-          target="_blank"
-          rel="noreferrer"
-          class="home__buttons__button button--tertiary"
-        >
-          LIFF Playground
-        </a>
-        <a
-          href="https://developers.line.biz/console/"
-          target="_blank"
-          rel="noreferrer"
-          class="home__buttons__button button--secondary"
-        >
-          LINE Developers Console
-        </a>
+        <button id="loginButton" class="home__buttons__button button--primary profile--hidden" type="button">
+          LINEでログイン
+        </button>
       </div>
     </div>
   </body>
