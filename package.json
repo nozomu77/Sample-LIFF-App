@@ -1,0 +1,11 @@
+{
+  "name": "personal-agent-liff",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Personal Agent の LINE LIFF アプリ",
+  "scripts": {
+    "dev": "npm run dev --prefix src/vanilla",
+    "build": "npm run build --prefix src/vanilla",
+    "install:app": "npm install --prefix src/vanilla"
+  }
+}

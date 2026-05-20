@@ -1,0 +1,5 @@
+[build]
+  command = "cd src/vanilla && yarn install && yarn build"
+  publish = "src/vanilla/dist"
+
+# Netlify の Site settings > Environment variables で LIFF_ID を設定してください

@@ -1,0 +1,59 @@
+# GitHub Actions: LINE-Liff-Test を GitHub Pages に公開します。
+# Settings → Pages → Source: GitHub Actions を選んでください。
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ['main']
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install --prefix src/vanilla
+
+      - name: Build
+        env:
+          # プロジェクトサイト: https://<user>.github.io/<このリポジトリ名>/
+          BASE_PATH: /${{ github.event.repository.name }}/
+          NODE_ENV: production
+          LIFF_ID: ${{ secrets.LIFF_ID }}
+        run: npm run build --prefix src/vanilla
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: src/vanilla/dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
