@@ -17,6 +17,29 @@
         <p id="userId" class="profile__id"></p>
       </section>
 
+      <section id="tokenCard" class="profile profile--hidden" aria-live="polite">
+        <h2 class="profile__name profile__name--small">認証トークン</h2>
+        <p class="profile__id">ID Token（先頭20文字）</p>
+        <p id="idTokenPreview" class="token-preview"></p>
+        <p class="profile__id">Access Token（先頭20文字）</p>
+        <p id="accessTokenPreview" class="token-preview"></p>
+      </section>
+
+      <section id="actionCard" class="profile profile--hidden" aria-live="polite">
+        <h2 class="profile__name profile__name--small">アクション</h2>
+        <p id="actionStatus" class="home__status">Webhook未送信</p>
+        <div class="home__buttons">
+          <button id="sendWebhookButton" class="home__buttons__button button--secondary" type="button">
+            Webhookへ送信
+          </button>
+        </div>
+      </section>
+
+      <section id="errorCard" class="profile profile--hidden" aria-live="polite">
+        <h2 class="profile__name profile__name--small">エラー詳細</h2>
+        <pre id="errorDetail" class="error-detail"></pre>
+      </section>
+
       <div class="home__buttons">
         <button id="loginButton" class="home__buttons__button button--primary profile--hidden" type="button">
           LINEでログイン
